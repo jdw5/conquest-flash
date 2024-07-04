@@ -2,7 +2,6 @@
 
 use Conquest\Flash\Enums\MessageType;
 use Conquest\Flash\Flash;
-use Conquest\Flash\Messages\Message;
 
 if (!function_exists('flash')) {
     /**
@@ -15,15 +14,15 @@ if (!function_exists('flash')) {
      * @return Flash
      */
     function flash(
-        ?string $title = null, 
+        ?string $message = null, 
         ?string $description = null,
         string|MessageType|null $type = null,
         bool $toast = true,
     ): Flash {
         $flash = app(Flash::class);
 
-        if (!is_null($title)) {
-            $flash->flash($title, $description, $type, $toast);
+        if (!is_null($message)) {
+            $flash->flash($message, $description, $type, $toast);
         }
 
         return $flash;

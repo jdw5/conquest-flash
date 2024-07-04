@@ -42,7 +42,7 @@ class Flash
         ?string $description = null,
         string|MessageType|null $type = null,
     ): static {
-        $this->flashMessage($message instanceof Message ? $message : Toast::make(...func_get_args()));
+        $this->flashMessage($message instanceof Message ? $message : Toast::make($message, $description, $type));
         return $this;
     }
 
@@ -51,7 +51,7 @@ class Flash
         ?string $description = null,
         string|MessageType|null $type = null,
     ): static {
-        $this->flashMessage($message instanceof Message ? $message : Banner::make(...func_get_args()));
+        $this->flashMessage($message instanceof Message ? $message : Banner::make($message, $description, $type));
         return $this;
     }
 

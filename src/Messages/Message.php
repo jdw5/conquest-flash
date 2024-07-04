@@ -28,7 +28,7 @@ abstract class Message extends Primitive
 
     public static function make(string $message, ?string $description = null, string|MessageType|null $type = null,
     ): static {
-        return resolve(static::class, ...func_get_args());
+        return resolve(static::class, compact('message', 'description', 'type'));
     }
 
     public function toArray()
