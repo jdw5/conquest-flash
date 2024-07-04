@@ -1,9 +1,9 @@
 <?php
 
-use Conquest\Flash\Flash;
-use Conquest\Flash\Messages\Toast;
-use Conquest\Flash\Messages\Banner;
 use Conquest\Flash\Enums\MessageType;
+use Conquest\Flash\Flash;
+use Conquest\Flash\Messages\Banner;
+use Conquest\Flash\Messages\Toast;
 
 it('can set a simple message', function () {
     flash('Hello, World!');
@@ -11,7 +11,6 @@ it('can set a simple message', function () {
     expect(session(Flash::TOAST_KEY))->toBeInstanceOf(Toast::class);
     expect(session(Flash::BANNER_KEY))->toBeNull();
 });
-
 
 it('can set a toast message', function () {
     flash()->toast('Hello, World!');

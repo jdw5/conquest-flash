@@ -10,17 +10,18 @@ use Conquest\Flash\Enums\MessageType;
 
 abstract class Message extends Primitive
 {
-    use HasLabel;
     use HasDescription;
+    use HasLabel;
     use HasType;
 
     public function __construct(
         string $message,
         ?string $description = null,
         string|MessageType|null $type = null
-    )
-    {
-        if ($type instanceof MessageType) $type = $type->value;
+    ) {
+        if ($type instanceof MessageType) {
+            $type = $type->value;
+        }
         $this->setLabel($message);
         $this->setDescription($description);
         $this->setType($type);
@@ -36,7 +37,7 @@ abstract class Message extends Primitive
         return [
             'label' => $this->getLabel(),
             'description' => $this->getdescription(),
-            'type' => $this->getType()
+            'type' => $this->getType(),
         ];
     }
 }

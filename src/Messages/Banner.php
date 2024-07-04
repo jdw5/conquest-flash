@@ -2,7 +2,4 @@
 
 namespace Conquest\Flash\Messages;
 
-class Banner extends Message
-{
-    
-}
+class Banner extends Message {}
