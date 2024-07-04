@@ -72,5 +72,5 @@ class Flash
             'toast' => session(self::TOAST_KEY),
             'banner' => session(self::BANNER_KEY),
         ];
-    } 
+    }
 }
