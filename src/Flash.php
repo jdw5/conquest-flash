@@ -65,4 +65,12 @@ class Flash
             default => $this->session->flash(self::TOAST_KEY, $message),
         };
     }
+
+    public static function messages(): array
+    {
+        return [
+            'toast' => session(self::TOAST_KEY),
+            'banner' => session(self::BANNER_KEY),
+        ];
+    } 
 }

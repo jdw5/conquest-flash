@@ -42,3 +42,18 @@ it('can set both a toast and banner message', function () {
     expect(session(Flash::BANNER_KEY))->toBeInstanceOf(Banner::class);
     expect(session(Flash::BANNER_KEY)->getType())->toBe('custom');
 });
+
+it('can retrieve flash notifications', function () {
+    flash()->toast('Hello, World!');
+    flash()->banner('Hello, World!');
+    expect(Flash::messages())->toBe([
+        'toast' => session(Flash::TOAST_KEY),
+        'banner' => session(Flash::BANNER_KEY),
+    ]);
+});
+
+it('can set a global flash duration', function () {
+    Toast::setGlobalFlashDuration(10000);
+    flash()->toast('Hello, World!');
+    expect(session(Flash::TOAST_KEY)->getDuration())->toBe(10000);
+});
