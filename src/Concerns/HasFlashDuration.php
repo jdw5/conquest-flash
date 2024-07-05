@@ -4,7 +4,7 @@ namespace Conquest\Flash\Concerns;
 
 trait HasFlashDuration
 {
-    private static int $globalDuration = 5000; // milliseconds
+    protected static int $globalDuration = 5000; // milliseconds
 
     protected ?int $duration = null;
 
