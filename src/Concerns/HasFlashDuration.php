@@ -5,6 +5,7 @@ namespace Conquest\Flash\Concerns;
 trait HasFlashDuration
 {
     private static int $globalDuration = 5000; // milliseconds
+
     protected ?int $duration = null;
 
     public static function setGlobalFlashDuration(int $duration): void
@@ -15,6 +16,7 @@ trait HasFlashDuration
     public function duration(int $duration): static
     {
         $this->setDuration($duration);
+
         return $this;
     }
 
