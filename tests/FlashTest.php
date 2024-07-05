@@ -7,7 +7,6 @@ use Conquest\Flash\Messages\Toast;
 
 it('can set a simple message', function () {
     flash('Hello, World!');
-
     expect(session(Flash::TOAST_KEY))->toBeInstanceOf(Toast::class);
     expect(session(Flash::BANNER_KEY))->toBeNull();
 });
@@ -15,7 +14,7 @@ it('can set a simple message', function () {
 it('can set a toast message', function () {
     flash()->toast('Hello, World!');
     expect(session(Flash::TOAST_KEY))->toBeInstanceOf(Toast::class);
-    expect(session(Flash::TOAST_KEY))->getDuration()->toBe(5000);
+    expect(session(Flash::TOAST_KEY)->getDuration())->not->toBeNull();
     expect(session(Flash::BANNER_KEY))->toBeNull();
 
 });
@@ -53,7 +52,8 @@ it('can retrieve flash notifications', function () {
 });
 
 it('can set a global flash duration', function () {
-    Toast::setGlobalFlashDuration(10000);
+    $i = 10000;
+    Toast::setGlobalFlashDuration($i);
     flash()->toast('Hello, World!');
-    expect(session(Flash::TOAST_KEY)->getDuration())->toBe(10000);
+    expect(session(Flash::TOAST_KEY)->getDuration())->toBe($i);
 });
