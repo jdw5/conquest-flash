@@ -59,12 +59,7 @@
     },
     "extra": {
         "laravel": {
-            "providers": [
-                "Conquest\\Flash\\FlashServiceProvider"
-            ],
-            "aliases": {
-                "Flash": "Conquest\\Flash\\Facades\\Flash"
-            }
+
         }
     },
     "minimum-stability": "dev",
